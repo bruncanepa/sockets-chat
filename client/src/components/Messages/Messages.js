@@ -1,24 +1,23 @@
 import React from 'react';
-import Styled from 'styled-components';
+import PropTypes from 'prop-types';
 
+import './styles.css';
 import container from '../../containers/Messages.container';
 import Message from '../Message';
+import {chatMessagePropType} from '../../propTypes';
 
 const Messages = function ({messages}) {
   return (
-    <Content>
+    <div className="Messages-content">
       {messages.map(function (message){
         return <Message key={message.messageId} {...message} />
       })}
-    </Content>
+    </div>
   )
 };
 
-const Content = Styled.div`
-  display: flexbox;
-  flex-direction: row;
-  justify-content: center;
-  
-`
+Messages.propTypes = {
+  messages: PropTypes.arrayOf(PropTypes.shape(chatMessagePropType).isRequired)
+};
 
 export default container(Messages);

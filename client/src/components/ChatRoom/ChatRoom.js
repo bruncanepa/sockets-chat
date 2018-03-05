@@ -1,24 +1,25 @@
 import React from 'react';
-import Styled from 'styled-components';
+import PropTypes from 'prop-types';
 
+import './styles.css';
 import container from '../../containers/ChatRoom.container';
 import Header from '../Header';
 import Messages from '../Messages';
 import MessageTextInput from '../MessageTextInput';
+import {chatPropType} from '../../propTypes';
 
 const ChatRoom = function ({chat}) {
   return (
-    <Room>
-      <Header chat={chat}/>
+    <div className="ChatRoom-content">
+      <Header name={chat.name}/>
       <Messages messages={chat.messages}/>
       <MessageTextInput chatId={chat.chatId}/>
-    </Room>
+    </div>
   )
 };
 
-const Room = Styled.div`
-  width: 100%;
-  heigth: 100%;
-`
+ChatRoom.propTypes = {
+  chat: PropTypes.shape(chatPropType).isRequired
+};
 
 export default container(ChatRoom);

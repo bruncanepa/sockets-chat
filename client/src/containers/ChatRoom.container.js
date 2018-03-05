@@ -1,26 +1,35 @@
 import React from 'react';
 
-import {chat} from '../state';
+import {createChat} from '../state';
+import {events, subscribe} from '../utils/publishSubscribe';
 
 const container = function (T) {
   return class ChatRoom extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        chat: chat
+        chat: createChat()
       };
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-      return true;
+    componentDidMount() {
+      this.unsubscribe = subscribe(events.CREATE_MESSAGE, this.onCreateMessage);
     }
 
-    componentWillReceiveProps(nextProps) {
-      console.log(JSON.stringify(nextProps))
+    shouldComponentUpdate(nextProps, nextState) {
+      return false;
+    }
+
+    componentWillUnmount() {
+      this.unsubscribe();
+    }
+
+    onCreateMessage = () => {
+      this.forceUpdate();
     }
 
     render() {
-      return (<T {...this.state}/>)
+      return <T {...this.state}/>
     }
   }
 };

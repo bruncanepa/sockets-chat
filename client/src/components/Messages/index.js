@@ -1,3 +1,3 @@
-import Messages from './Messages.component';
+import Messages from './Messages';
 
 export default Messages;

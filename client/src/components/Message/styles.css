@@ -1,0 +1,11 @@
+.Message-content {
+  color: black;
+  background-color: lightblue;
+  height: 40px;
+  margin: 5px;
+  width: min-content;
+}
+
+.Message-span {
+  width: 100%;
+}

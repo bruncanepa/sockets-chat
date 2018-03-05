@@ -1,3 +1,3 @@
-import ChatRoom from './ChatRoom.component';
+import ChatRoom from './ChatRoom';
 
 export default ChatRoom;

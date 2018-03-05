@@ -1,3 +1,3 @@
-import MessageTextInput from './MessageTextInput.component';
+import MessageTextInput from './MessageTextInput';
 
 export default MessageTextInput;

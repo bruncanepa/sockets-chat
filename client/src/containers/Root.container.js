@@ -4,7 +4,7 @@ const container = function (T) {
   return class Root extends React.Component {
 
     shouldComponentUpdate() {
-      return true;
+      return false;
     }
 
     render() {
