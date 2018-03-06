@@ -9,10 +9,8 @@ const container = function (T) {
       messages: PropTypes.arrayOf(PropTypes.shape(chatMessagePropType).isRequired)
     }
 
-    render () {
-      return (
-        <T {...this.props}/>
-      )
+    render() {
+      return <T {...this.props}/>
     }
   }
 };

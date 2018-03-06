@@ -11,7 +11,7 @@ export const createChat = function () {
 
 export const createChatMessage = function ({chatId, text}) {
   const chat = chats[chatId];
-  chat.createMessage({text});
+  return chat.createMessage({text});
 };
 
 const initChat = function (chatId) {

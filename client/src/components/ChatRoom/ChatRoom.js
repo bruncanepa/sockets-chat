@@ -8,18 +8,19 @@ import Messages from '../Messages';
 import MessageTextInput from '../MessageTextInput';
 import {chatPropType} from '../../propTypes';
 
-const ChatRoom = function ({chat}) {
+const ChatRoom = function ({chat, onSendMessage}) {
   return (
     <div className="ChatRoom-content">
       <Header name={chat.name}/>
       <Messages messages={chat.messages}/>
-      <MessageTextInput chatId={chat.chatId}/>
+      <MessageTextInput chatId={chat.chatId} onSendMessage={onSendMessage}/>
     </div>
   )
 };
 
 ChatRoom.propTypes = {
-  chat: PropTypes.shape(chatPropType).isRequired
+  chat: PropTypes.shape(chatPropType).isRequired,
+  onSendMessage: PropTypes.func.isRequired
 };
 
 export default container(ChatRoom);

@@ -1,9 +1,10 @@
 function ChatMessage({messageId, text}) {
-  this.messageId = messageId;
-  this.text = text;
-  this.createdAt = new Date().getMilliseconds();
-  this.fromId = 0;
-  this.toId = 0;
+  const self = this;
+  self.messageId = messageId;
+  self.text = text;
+  self.createdAt = new Date().getMilliseconds();
+  self.fromId = 1;
+  self.toId = 2;
 };
 
 export default ChatMessage;

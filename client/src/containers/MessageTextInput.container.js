@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import {createChatMessage} from '../state';
 
 const container = function (T) {
-  return class MessageTextInput extends React.PureComponent {
+  return class MessageTextInput extends React.Component {
     static propTypes = {
-      chatId: PropTypes.number.isRequired
+      chatId: PropTypes.number.isRequired,
+      onSendMessage: PropTypes.func.isRequired
     }
 
     constructor(props) {
@@ -16,13 +17,18 @@ const container = function (T) {
       };
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+      return this.state.text != nextState.text;
+    }
+
     onPress = () => {
-      createChatMessage({chatId: this.props.chatId, text: this.state.text});
+      const message = createChatMessage({chatId: this.props.chatId, text: this.state.text});
+      this.props.onSendMessage(message);
       this.setState({text: ''});
     }
 
     onTextChange = (text) => {
-      text != this.state.text && this.setState({text});
+      this.setState({text});
     }
 
     render() {

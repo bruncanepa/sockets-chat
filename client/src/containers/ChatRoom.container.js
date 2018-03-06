@@ -1,10 +1,12 @@
 import React from 'react';
 
+import {receiveMessage} from '../api/chatMessage.api';
 import {createChat} from '../state';
-import {events, subscribe} from '../utils/publishSubscribe';
 
 const container = function (T) {
   return class ChatRoom extends React.Component {
+    that = this;
+
     constructor(props) {
       super(props);
       this.state = {
@@ -13,23 +15,24 @@ const container = function (T) {
     }
 
     componentDidMount() {
-      this.unsubscribe = subscribe(events.CREATE_MESSAGE, this.onCreateMessage);
+      receiveMessage(this.onReceiveMessage);
     }
 
     shouldComponentUpdate(nextProps, nextState) {
       return false;
     }
 
-    componentWillUnmount() {
-      this.unsubscribe();
+    onReceiveMessage = (message) => {
+      alert(JSON.stringify(message));
+      this.forceUpdate();
     }
 
-    onCreateMessage = () => {
+    onSendMessage = (message) => {
       this.forceUpdate();
     }
 
     render() {
-      return <T {...this.state}/>
+      return <T {...this.state} onSendMessage={this.onSendMessage}/>
     }
   }
 };
