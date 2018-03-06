@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {receiveMessage} from '../api/chatMessage.api';
+import {receiveMessage, sendMessage} from '../api/chatMessage.api';
 import {createChat} from '../state';
 
 const container = function (T) {
@@ -23,11 +23,11 @@ const container = function (T) {
     }
 
     onReceiveMessage = (message) => {
-      alert(JSON.stringify(message));
       this.forceUpdate();
     }
 
     onSendMessage = (message) => {
+      sendMessage(message);
       this.forceUpdate();
     }
 

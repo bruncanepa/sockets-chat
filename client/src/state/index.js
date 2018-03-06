@@ -1,6 +1,9 @@
+import uuid from '../utils/uuid';
 import Chat from './Chat';
 
 const chats = {};
+
+const userId = uuid();
 
 export const createChat = function () {
   const chat = new Chat();
@@ -11,17 +14,15 @@ export const createChat = function () {
 
 export const createChatMessage = function ({chatId, text}) {
   const chat = chats[chatId];
-  return chat.createMessage({text});
+  return chat.createMessage({text, userId});
+};
+
+export const receiveChatMessage = function ({chatId, fromId, text}) {
+  const chat = chats[chatId];
+  return chat.createMessage({text, chatId, userId: fromId});
 };
 
 const initChat = function (chatId) {
   createChatMessage({chatId, text: 'message 1'});
   createChatMessage({chatId, text: 'message 2'});
-  createChatMessage({chatId, text: 'message 3'});
-  createChatMessage({chatId, text: 'message 4'});
-  createChatMessage({chatId, text: 'message 5'});
-  createChatMessage({chatId, text: 'message 6'});
-  setTimeout(function () {
-    createChatMessage({chatId, text: 'message 7'});
-  }, 2000)
 };

@@ -4,11 +4,11 @@ import './styles.css';
 import container from '../../containers/Message.container';
 import {chatMessagePropType} from '../../propTypes';
 
-const Message = function ({text}) {
+const Message = function ({text, fromId}) {
   return (
     <div className="Message-content">
       <span className="Message-span">
-        {text}
+        {`${fromId.split('-')[4]}: ${text}`}
       </span>
     </div>
   )

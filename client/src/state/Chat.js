@@ -1,4 +1,3 @@
-import {sendMessage} from '../api/chatMessage.api';
 import ChatMessage from './ChatMessage';
 
 let chatId = 0;
@@ -11,10 +10,17 @@ function Chat() {
   self.name = `User Number${chatId}`;
 };
 
-Chat.prototype.createMessage = function ({text}) {
-  const message = new ChatMessage({messageId: ++this.messageId, text});
-  this.messages = [...this.messages, message]; // change pointer
-  sendMessage(message);
+Chat.prototype.createMessage = function ({text, userId}) {
+  const message = new ChatMessage({
+    messageId: ++this.messageId,
+    text,
+    fromId: userId,
+    chatId: this.chatId
+  });
+  this.messages = [
+    ...this.messages,
+    message
+  ];
   return message;
 };
 
