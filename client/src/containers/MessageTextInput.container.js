@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {createChatMessage} from '../state';
-
 const container = function (T) {
   return class MessageTextInput extends React.Component {
     static propTypes = {
@@ -22,8 +20,7 @@ const container = function (T) {
     }
 
     onPress = () => {
-      const message = createChatMessage({chatId: this.props.chatId, text: this.state.text});
-      this.props.onSendMessage(message);
+      this.props.onSendMessage({chatId: this.props.chatId, text: this.state.text});
       this.setState({text: ''});
     }
 

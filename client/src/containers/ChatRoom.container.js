@@ -26,8 +26,8 @@ const container = function (T) {
       this.forceUpdate();
     }
 
-    onSendMessage = (message) => {
-      sendMessage(message);
+    onSendMessage = (messageData) => {
+      sendMessage(messageData);
       this.forceUpdate();
     }
 
