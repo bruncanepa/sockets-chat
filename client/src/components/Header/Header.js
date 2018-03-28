@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import styles from './styles';
 import container from '../../containers/Header.container';
 
 const Header = function ({name}) {
   return (
-    <div className="Header-content">
+    <div style={styles.content}>
       {name}
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import styles from './styles';
 import container from '../../containers/ChatRoom.container';
 import Header from '../Header';
 import Messages from '../Messages';
@@ -10,7 +10,7 @@ import {chatPropType} from '../../propTypes';
 
 const ChatRoom = function ({chat, onSendMessage}) {
   return (
-    <div className="ChatRoom-content">
+    <div styles={styles.content}>
       <Header name={chat.name}/>
       <Messages messages={chat.messages}/>
       <MessageTextInput chatId={chat.chatId} onSendMessage={onSendMessage}/>
@@ -19,7 +19,9 @@ const ChatRoom = function ({chat, onSendMessage}) {
 };
 
 ChatRoom.propTypes = {
-  chat: PropTypes.shape(chatPropType).isRequired,
+  chat: PropTypes
+    .shape(chatPropType)
+    .isRequired,
   onSendMessage: PropTypes.func.isRequired
 };
 

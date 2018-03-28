@@ -1,14 +1,15 @@
 import React from 'react';
 
-import './styles.css';
+import styles from './styles';
+
 import container from '../../containers/Message.container';
 import {chatMessagePropType} from '../../propTypes';
 
 const Message = function ({text, fromId}) {
   return (
-    <div className="Message-content">
-      <span className="Message-span">
-        {`${fromId.split('-')[4]}: ${text}`}
+    <div style={styles.content}>
+      <span style={styles.span}>
+        {`${fromId}: ${text}`}
       </span>
     </div>
   )

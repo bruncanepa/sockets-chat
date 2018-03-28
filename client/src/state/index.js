@@ -3,12 +3,11 @@ import Chat from './Chat';
 
 const chats = {};
 
-const userId = uuid();
+const userId = 'A'//uuid();
 
 export const createChat = function () {
-  const chat = new Chat();
+  const chat = new Chat({userAId: userId, userBId: 'B'});
   chats[chat.chatId] = chat;
-  initChat(chat.chatId)
   return chat;
 };
 
@@ -20,9 +19,4 @@ export const createChatMessage = function ({chatId, text}) {
 export const receiveChatMessage = function ({chatId, fromId, text}) {
   const chat = chats[chatId];
   return chat.createMessage({text, chatId, userId: fromId});
-};
-
-const initChat = function (chatId) {
-  createChatMessage({chatId, text: 'message 1'});
-  createChatMessage({chatId, text: 'message 2'});
 };

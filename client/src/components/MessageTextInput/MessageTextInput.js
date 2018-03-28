@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.css';
+import styles from './styles';
 import container from '../../containers/MessageTextInput.container';
 
 class MessageTextInput extends React.Component {
@@ -33,9 +33,9 @@ class MessageTextInput extends React.Component {
   render() {
     const {chatId, onPress, onTextChange} = this.props;
     return (
-      <div className="MessageTextInput-content">
-        <input className="MessageTextInput-input" onChange={this.onTextChange} ref={this.innerRef} />
-        <button className="MessageTextInput-button" onClick={this.onPress}>
+      <div style={styles.content}>
+        <input style={styles.input} onChange={this.onTextChange} ref={this.innerRef} />
+        <button style={styles.button} onClick={this.onPress}>
           >
         </button>
       </div>
