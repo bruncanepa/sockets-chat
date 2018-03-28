@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {chatMessagePropType} from '../propTypes';
 
 const container = function (T) {
   return class Message extends React.Component {
     static propTypes = {
-      ...chatMessagePropType
+      message: PropTypes
+        .shape(chatMessagePropType)
+        .isRequired
     }
 
     shouldComponentUpdate(nextProps) {

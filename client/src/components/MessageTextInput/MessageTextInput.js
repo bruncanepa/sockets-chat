@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 import styles from './styles';
 import container from '../../containers/MessageTextInput.container';
+import {chatId as chatIdPropType} from '../../propTypes/chat.propType';
 
 class MessageTextInput extends React.Component {
   static propTypes = {
-    chatId : PropTypes.number.isRequired,
+    chatId : chatIdPropType,
     onPress : PropTypes.func.isRequired,
     onTextChange : PropTypes.func.isRequired,
     text: PropTypes.string
@@ -18,8 +19,8 @@ class MessageTextInput extends React.Component {
     if (text && text.trim()) {
       this.props.onPress();
       this.input.value = '';
-      this.input.focus();
     }
+    this.input.focus();
   }
 
   onTextChange = (event) => {

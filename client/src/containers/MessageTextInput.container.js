@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {chatId as chatIdPropType} from '../propTypes/chat.propType';
+
 const container = function (T) {
   return class MessageTextInput extends React.Component {
     static propTypes = {
-      chatId: PropTypes.number.isRequired,
+      chatId: chatIdPropType,
       onSendMessage: PropTypes.func.isRequired
     }
 

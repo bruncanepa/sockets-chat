@@ -1,22 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './styles';
-
 import container from '../../containers/Message.container';
 import {chatMessagePropType} from '../../propTypes';
 
-const Message = function ({text, fromId}) {
+const Message = function ({message}) {
+  const {text, fromId, isMine} = message;
   return (
-    <div style={styles.content}>
+    <div style={isMine
+      ? styles.contentRight
+      : styles.contentLeft}>
       <span style={styles.span}>
-        {`${fromId}: ${text}`}
+        {text}
       </span>
     </div>
   )
 };
 
 Message.propTypes = {
-  ...chatMessagePropType
+  message: PropTypes
+    .shape(chatMessagePropType)
+    .isRequired
 };
 
 export default container(Message);

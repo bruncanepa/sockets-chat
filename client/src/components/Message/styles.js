@@ -1,14 +1,21 @@
+const contentLeft = {
+  color: 'black',
+  backgroundColor: 'lightblue',
+  height: 40,
+  margin: 10,
+  width: 'min-content',
+  borderRadius: '10%' 
+};
+
 const styles = {
-  content: {
-    color: 'black',
-    backgroundColor: 'lightblue',
-    height: 40,
-    margin: 5,
-    width: 'min-content',
-    display: 'flex',
+  contentLeft,
+  contentRight: {
+    ...contentLeft,
+    marginLeft: 'auto',
+    backgroundColor: 'lightgreen'
   },
   span: {
-    width: '100%',
+    width: '100%'
   }
 };
 

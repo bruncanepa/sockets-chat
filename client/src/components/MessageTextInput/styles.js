@@ -8,12 +8,13 @@ const styles = {
     color: 'black',
     position: 'fixed',
     bottom: 0,
-    border: 'solid black 1px',
+    border: 'solid lightgrey 1px'
   },
   input: {
-    flex: 8,
+    flex: 9,
     height: '100%',
-    fontSize: 20
+    fontSize: 20,
+    border: 0
   },
   button: {
     flex: 1,
@@ -21,7 +22,8 @@ const styles = {
     height: '100%',
     textAlign: 'center',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    border: 0
   }
 };
 

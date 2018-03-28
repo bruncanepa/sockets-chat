@@ -12,7 +12,7 @@ const ChatRoom = function ({chat, onSendMessage}) {
   return (
     <div styles={styles.content}>
       <Header name={chat.name}/>
-      <Messages messages={chat.messages}/>
+      <Messages {...chat}/>
       <MessageTextInput chatId={chat.chatId} onSendMessage={onSendMessage}/>
     </div>
   )

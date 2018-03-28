@@ -6,7 +6,12 @@ import {chatMessagePropType} from '../propTypes';
 const container = function (T) {
   return class Messages extends React.PureComponent {
     static propTypes = {
-      messages: PropTypes.arrayOf(PropTypes.shape(chatMessagePropType).isRequired)
+      messages: PropTypes
+        .shape(chatMessagePropType)
+        .isRequired,
+      messagesIds: PropTypes
+        .arrayOf(PropTypes.string)
+        .isRequired
     }
 
     render() {

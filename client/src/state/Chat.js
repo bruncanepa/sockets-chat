@@ -1,32 +1,38 @@
 import ChatMessage from './ChatMessage';
+import User from './User';
+import uuid from '../utils/uuid';
 
-let chatId = 0;
-
-function Chat({userAId, userBId}) {
+function Chat({userA, userB}) {
   const self = this;
-  self.messageId = 0;
-  self.chatId = ++chatId;
-  self.messages = [];
-  self.name = `User Number${chatId}`;
-  self.userAId = userAId;
-  self.userBId = userBId;
+  self.chatId = uuid('chat');
+  self.messages = {};
+  self.messagesIds = []; // only messagesIds will be inmutable
+  self.name = `${self.chatId}`;
+  self.userA = new User(userA);
+  self.userB = new User(userB);
 };
 
-Chat.prototype.createMessage = function ({text, userId}) {
+Chat.prototype.createMessage = function ({text, userId, isMine}) {
+  const {userA, userB} = this;
+
   const message = new ChatMessage({
-    messageId: ++this.messageId,
-    text,
+    chatId: this.chatId,
     fromId: userId,
-    toId: userId == this.userAId
-      ? this.userAId
-      : this.userBId,
-    chatId: this.chatId
+    toId: userId == userA.userId
+      ? userB.userId
+      : userA.userId,
+    text,
+    isMine
   });
-  this.messages = [
-    ...this.messages,
-    message
-  ];
+
+  this.messages[message.messageId] = message;
+  this.messagesIds = [...this.messagesIds, message.messageId];
   return message;
+};
+
+Chat.prototype.changeMessageState = function ({messageId}) {
+  const message = this.messages[messageId];
+  this.messages[messageId] = {...message, state: message.nextState()};
 };
 
 export default Chat;

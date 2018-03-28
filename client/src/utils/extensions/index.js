@@ -1,1 +1,1 @@
-import array from './arrayExtensions';
+import './arrayExtensions';

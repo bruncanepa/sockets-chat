@@ -5,8 +5,6 @@ import {createChat} from '../state';
 
 const container = function (T) {
   return class ChatRoom extends React.Component {
-    that = this;
-
     constructor(props) {
       super(props);
       this.state = {
