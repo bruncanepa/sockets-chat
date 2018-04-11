@@ -8,7 +8,7 @@ const styles = {
     marginBottom: 50,
     backgroundColor: '#F0F8FF',
     overflow: 'auto',
-    height: window.screen.height - 100 // 50px header and 50px input
+    height: window.screen.height - 90 // 50px header and 40px input
   }
 };
 

@@ -18,8 +18,12 @@ ChatMessage.prototype.nextState = function () {
   switch (this.state) {
     case PENDING_STATE:
       newState = SENT_STATE;
+      break;
     case SENT_STATE:
       newState = DELIVERED_STATE;
+      break;
+    default:
+      break;
   }
   return newState;
 };

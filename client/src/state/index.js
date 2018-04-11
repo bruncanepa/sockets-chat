@@ -38,4 +38,8 @@ const initChat = function (chatId) {
   const firstMessage = createChatMessage({chatId, text: 'message 1'});
   receiveChatMessage({chatId, text: 'message 2', fromId: 'B'});
   changeChatMessageState({chatId, messageId: firstMessage.messageId})
+  createChatMessage({chatId, text: 'aasd asdasda asdfasdfa sdfasdhkfasdhjf asdkjfhasdkfashkjdf asdkfjhasd faksdfa sdkfahsdf askdjfh askdfha sdjfha skdfhas'});
+  createChatMessage({chatId, text: 'message 1'});
+  createChatMessage({chatId, text: 'asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasfd'});
+  createChatMessage({chatId, text: 'aasd asdda asdfa sdfasdhk asdk asdkfj faks sdkf ask askdfha sdjfha skdfhas'});
 };

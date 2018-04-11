@@ -1,10 +1,11 @@
 const contentLeft = {
   color: 'black',
   backgroundColor: 'lightblue',
-  height: 40,
-  margin: 10,
-  width: 'min-content',
-  borderRadius: '10%' 
+  borderRadius: '10%',
+  maxWidth: '70%',
+  borderRadius: 20,
+  padding: '8px 12px',
+  margin: '5px auto 5px 10px'
 };
 
 const styles = {
@@ -12,10 +13,12 @@ const styles = {
   contentRight: {
     ...contentLeft,
     marginLeft: 'auto',
-    backgroundColor: 'lightgreen'
+    marginRight: 10,
+    backgroundColor: 'lightgreen',
   },
   span: {
-    width: '100%'
+    marginLeft: 'auto',
+    wordBreak: 'break-word'
   }
 };
 

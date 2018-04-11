@@ -36,7 +36,6 @@ class Messages extends React.Component {
         {messagesIds
           .map(function (messageId) {
             const message = messages[messageId];
-            console.log(JSON.stringify(message))
             return <Message key={messageId} message={message}/>
           })}
       </div>

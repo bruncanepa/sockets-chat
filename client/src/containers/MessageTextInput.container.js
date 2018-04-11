@@ -21,7 +21,7 @@ const container = function (T) {
       return this.state.text != nextState.text;
     }
 
-    onPress = () => {
+    onSend = () => {
       this.props.onSendMessage({chatId: this.props.chatId, text: this.state.text});
       this.setState({text: ''});
     }
@@ -34,7 +34,7 @@ const container = function (T) {
       return <T
         {...this.props}
         {...this.state}
-        onPress={this.onPress}
+        onSend={this.onSend}
         onTextChange={this.onTextChange}/>
     }
   }

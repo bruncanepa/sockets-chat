@@ -4,7 +4,7 @@ import uuid from '../utils/uuid';
 
 function Chat({userA, userB}) {
   const self = this;
-  self.chatId = uuid('chat');
+  self.chatId = '1'//uuid('chat');
   self.messages = {};
   self.messagesIds = []; // only messagesIds will be inmutable
   self.name = `${self.chatId}`;

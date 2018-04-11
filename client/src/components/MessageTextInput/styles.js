@@ -4,26 +4,32 @@ const styles = {
     flexDirection: 'row',
     flex: 1,
     width: '100%',
-    height: 50,
+    height: 40,
     color: 'black',
     position: 'fixed',
     bottom: 0,
-    border: 'solid lightgrey 1px'
+    backgroundColor: 'black'
   },
   input: {
     flex: 9,
-    height: '100%',
-    fontSize: 20,
-    border: 0
+    fontSize: 16,
+    border: 0,
+    height: '85%',
+    borderRadius: 20,
+    margin: 'auto'
   },
   button: {
     flex: 1,
-    backgroundColor: 'green',
     height: '100%',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    border: 0
+    border: 0,
+    backgroundColor: 'inherit',
+  },
+  image: {
+    width: 20,
+    height: 20
   }
 };
 
