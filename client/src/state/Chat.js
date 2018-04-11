@@ -35,4 +35,8 @@ Chat.prototype.changeMessageState = function ({messageId}) {
   this.messages[messageId] = {...message, state: message.nextState()};
 };
 
+Chat.prototype.setName = function (name) {
+  this.name = name;
+};
+
 export default Chat;

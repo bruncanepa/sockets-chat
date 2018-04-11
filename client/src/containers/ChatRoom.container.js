@@ -1,6 +1,7 @@
 import React from 'react';
 
-import {receiveMessage, sendMessage} from '../api/chatMessage.api';
+import {receiveMessage, sendMessage} from '../api/chatMessages.api';
+import {getChatUserName} from '../api/users.api';
 import {createChat} from '../state';
 
 const container = function (T) {
@@ -12,8 +13,10 @@ const container = function (T) {
       };
     }
 
-    componentDidMount() {
+    async componentDidMount() {
       receiveMessage(this.onReceiveMessage);
+      await getChatUserName(this.state.chat.chatId, this.forceUpdate);
+      this.forceUpdate();
     }
 
     shouldComponentUpdate(nextProps, nextState) {

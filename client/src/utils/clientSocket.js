@@ -1,15 +1,15 @@
 import io from 'socket.io-client';
 
-import {SERVER_SOCKET_URL} from '../config';
+import {SOCKET_SERVER_URL} from '../config';
 
 const sockets = {};
 
-export const connect = function (url = SERVER_SOCKET_URL) {
-  const socket = io.connect(SERVER_SOCKET_URL);
+export const connect = function (url = SOCKET_SERVER_URL) {
+  const socket = io.connect(SOCKET_SERVER_URL);
   sockets[url] = socket;
 };
 
-export const listen = function ({event, callback, url = SERVER_SOCKET_URL}) {
+export const listen = function ({event, callback, url = SOCKET_SERVER_URL}) {
   const socket = sockets[url];
   socket
     .on(event, function (data) {
@@ -17,7 +17,7 @@ export const listen = function ({event, callback, url = SERVER_SOCKET_URL}) {
     });
 };
 
-export const emit = function ({event, data, url = SERVER_SOCKET_URL}) {
+export const emit = function ({event, data, url = SOCKET_SERVER_URL}) {
   const socket = sockets[url];  
   socket.emit(event, data);
 };
