@@ -8,6 +8,7 @@
     "express": "^4.16.2",
     "method-override": "^2.3.10",
     "mongodb": "^3.0.6",
-    "socket.io": "^2.0.4"
+    "socket.io": "^2.0.4",
+    "uuid": "^3.2.1"
   }
 }

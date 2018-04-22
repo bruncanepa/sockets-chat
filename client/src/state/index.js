@@ -1,5 +1,6 @@
 import uuid from '../utils/uuid';
 import Chat from './Chat';
+import {events, publish} from '../utils/publishSubscribe';
 
 const chats = {};
 
@@ -32,6 +33,7 @@ export const receiveChatMessage = function ({chatId, fromId, text}) {
 export const changeChatMessageState = function ({chatId, messageId}) {
   const chat = chats[chatId];
   chat.changeMessageState({messageId});
+  publish(events.CHAG_MESSAGE_SENT, messageId);
 };
 
 export const setChatUserName = function ({chatId, userName}) {

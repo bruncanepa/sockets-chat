@@ -45,5 +45,7 @@ export const publish = function (event, payload) {
 };
 
 export const events = {
-  CREATE_CHAT_MESSAGE: 'CREATE_CHAT_MESSAGE'
+  CREATE_CHAT_MESSAGE: 'CREATE_CHAT_MESSAGE',
+  CHAG_MESSAGE_SENT: 'CHAG_MESSAGE_SENT',
+  CHAT_MESSAGE_DELIVERED: 'CHAT_MESSAGE_DELIVERED'
 };

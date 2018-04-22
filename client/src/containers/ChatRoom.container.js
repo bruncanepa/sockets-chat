@@ -27,7 +27,7 @@ const container = function (T) {
       this.forceUpdate();
     }
 
-    onSendMessage = (messageData) => {
+    onSendMessage = async (messageData) => {
       sendMessage(messageData);
       this.forceUpdate();
     }

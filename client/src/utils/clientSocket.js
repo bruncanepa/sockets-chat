@@ -19,7 +19,11 @@ export const listen = function ({event, callback, url = SOCKET_SERVER_URL}) {
 
 export const emit = function ({event, data, url = SOCKET_SERVER_URL}) {
   const socket = sockets[url];  
-  socket.emit(event, data);
+  return new Promise(resolve => {
+      socket.emit(event, data, function(response) {
+        resolve(response);
+      });
+  });
 };
 
 export const events = {
