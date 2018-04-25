@@ -16,7 +16,7 @@ const userB = {
 export const createChat = function () {
   const chat = new Chat({userA, userB});
   chats[chat.chatId] = chat;
-  initChat(chat.chatId)
+//   initChat(chat.chatId)
   return chat;
 };
 

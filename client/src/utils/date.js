@@ -15,7 +15,7 @@ const formatDate = (date) => {
 const formatTime = (date) => {
   const hours = date.getHours();
   const minutes = date.getMinutes();
-  return `${hours}:${minutes}`;
+  return `${hours}:${minutes > 9 ? minutes : '0' + minutes}`;
 };
 
 export const formatDateFromMilliseconds = (milliseconds) => {
